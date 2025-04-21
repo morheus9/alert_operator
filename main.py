@@ -90,7 +90,7 @@ async def scheduled_monitoring():
                 await bot.send_message(
                     chat_id=TELEGRAM_CHAT_ID,
                     text=message,
-                    parse_mode=ParseMode.MARKDOWN
+                    parse_mode=ParseMode.MARKDOWN,
                 )
         except Exception as e:
             logger.error(f"Ошибка в scheduled_monitoring: {e}")
@@ -123,7 +123,7 @@ async def cmd_pause(message: types.Message):
 
     await message.answer(
         "Выберите неймспейс для приостановки уведомлений:",
-        reply_markup=builder.as_markup()
+        reply_markup=builder.as_markup(),
     )
 
 
@@ -142,7 +142,7 @@ async def cmd_resume(message: types.Message):
 
     await message.answer(
         "Выберите неймспейс для возобновления уведомлений:",
-        reply_markup=builder.as_markup()
+        reply_markup=builder.as_markup(),
     )
 
 
@@ -153,7 +153,7 @@ async def pause_callback(callback: CallbackQuery):
     redis_client.setex(f"pause:{namespace}", 3600, "true")
     await callback.message.edit_text(
         f"🔇 Уведомления для `{namespace}` приостановлены на 1 час.",
-        parse_mode=ParseMode.MARKDOWN
+        parse_mode=ParseMode.MARKDOWN,
     )
 
 
@@ -162,8 +162,7 @@ async def resume_callback(callback: CallbackQuery):
     namespace = callback.data.split("_")[1]
     redis_client.delete(f"pause:{namespace}")
     await callback.message.edit_text(
-        f"🔔 Уведомления для `{namespace}` возобновлены.",
-        parse_mode=ParseMode.MARKDOWN
+        f"🔔 Уведомления для `{namespace}` возобновлены.", parse_mode=ParseMode.MARKDOWN
     )
 
 
