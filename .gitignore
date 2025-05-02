@@ -2,3 +2,5 @@
 venv/
 sa.json
 Pulumi.*
+
+!Pulumi.yaml
