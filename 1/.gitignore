@@ -20,6 +20,10 @@
 # Go workspace file
 go.work
 go.work.sum
-
 # env file
 .env
+*.tf.json
+go-cdktf/.terraform/
+go-cdktf/.cdktf/
+go-cdktf/*.iml
+go-cdktf/*.log

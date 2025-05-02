@@ -1,0 +1,9 @@
+{
+  "language": "go",
+  "app": "go run main.go",
+  "projectId": "my-cdktf-go-yandex",
+  "terraformProviders": [
+    "registry.terraform.io/yandex-cloud/yandex"
+  ],
+  "terraformModules": []
+}
