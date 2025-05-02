@@ -1,4 +1,4 @@
-module my-cdktf-go-project
+module github.com/morheus9/alert_operator
 
 go 1.24
 
