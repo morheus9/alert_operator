@@ -1,8 +1,9 @@
 package main
 
 import (
+	"my-cdktf-go-project/stacks"
+
 	"github.com/hashicorp/terraform-cdk-go/cdktf"
-	"github.com/morheus9/alert_operator/stacks"
 )
 
 func main() {
